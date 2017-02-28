@@ -1,0 +1,51 @@
+<%= form_for(ad) do |f| %>
+  <% if ad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
+
+      <ul>
+      <% ad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="row control-group">
+                            <div class="form-group col-xs-3 col-xs-offset-4  controls">
+                                 <%= f.label :title %>
+                                 <%= f.text_field :title %>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+ <div class="row control-group">
+                            <div class="form-group col-xs-3 col-xs-offset-4  controls">
+                                  <%= f.label :desc %>
+                                <%= f.text_area :desc %>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+						 <div class="row control-group">
+                            <div class="form-group col-xs-3 col-xs-offset-4  controls">
+                                 <%= f.label :tel %>
+                                <%= f.number_field :tel %>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+						 <div class="row control-group">
+                            <div class="form-group col-xs-3 col-xs-offset-4 controls">
+                               <%= f.label :name %>  
+    <%= f.text_field :name %>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+     <div class="row">
+                            <div class="form-group col-xs-6 col-xs-offset-4">
+                                    <%= f.submit %>
+                            </div>
+                        </div>
+
+ 
+<% end %>

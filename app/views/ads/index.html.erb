@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+<br /><br /><br /><br />
+ <% @ads.order("created_at desc").each do |ad| %>
+  <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2><%= ad.title %></h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-2">
+                    <p><%= truncate(ad.desc, :length => 200, :omission => '... (czytaj dalej)') %></p>
+					
+                </div>
+                <div class="col-lg-3">
+                    <p>Autor: <%= ad.name %></p>
+					<p>Telefon: <%= ad.tel %></p>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h3><mark>
+                        <%= link_to 'Link', ad %> 
+						<% if session[:user_id] %> |
+						<%= link_to 'Edytuj', edit_ad_path(ad) %> | 
+						<% end %>
+						<% if session[:user_id] %>
+						<%= link_to 'Usuń', ad, method: :delete, data: { confirm: 'Are you sure?' } %>
+						<% end %>
+                    </mark></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+<br /> <br />
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

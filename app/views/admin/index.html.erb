@@ -1,0 +1,7 @@
+<% if flash[:notice] %>
+    <p id="notice"><%= flash[:notice] %></p>
+<% end %>    <br /><br /><br /><br /><br /><br />
+<h1>Jesteś teraz zalogowany.</h1>
+<h2>Możesz teraz edytować i usuwać ogłoszenia na głównej stronie</h2><br /><br /><br /><br />
+<%= button_to 'Wyloguj', logout_path, method: :delete %><br /><br />
+ <%= yield %>
